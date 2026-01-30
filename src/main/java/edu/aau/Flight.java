@@ -1,19 +1,18 @@
 package edu.aau;
 import java.io.Serializable;
-public class Flight implements Serializable {
+public class Flight implements serializable {
     private String flightNumber;
     private String origin;
     private String destination;
-    private int seatsAvailable;
-    private String departureTime;
+    private double price;
+    private int seats;
 
-
-    public Flight(String flightNumber, String origin, String destination, int seatsAvailable, String departureTime) {
+    public Flight(String flightNumber, String origin, String destination, double price, int seats) {
         this.flightNumber = flightNumber;
         this.origin = origin;
         this.destination = destination;
-        this.seatsAvailable = seatsAvailable;
-        this.departureTime = departureTime;
+        this.price = price;
+        this.seats = seats;
     }
 
 
