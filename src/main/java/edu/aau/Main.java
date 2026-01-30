@@ -6,7 +6,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class Main extends Application{
- @override
+//    @override
 
     public void start(Stage stage) {
         Label label = new Label("Airline Ticket System is Running!");
@@ -19,5 +19,6 @@ public class Main extends Application{
 
     public static void main(String[] args) {
         launch(args);
+        System.out.println("random print statement");
     }
 }
