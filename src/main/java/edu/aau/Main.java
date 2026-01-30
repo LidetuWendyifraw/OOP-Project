@@ -6,7 +6,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class Main extends Application{
-    @override
+//    @override
 
     public void start(Stage stage) {
         Label label = new Label("Airline Ticket System is Running!");
