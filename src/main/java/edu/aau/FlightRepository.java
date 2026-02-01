@@ -1,6 +1,6 @@
-package edu.aau.repository;
+package edu.aau;
 
-import edu.aau.model.Flight;
+import edu.aau.Flight;
 import edu.aau.util.DatabaseUtil;
 
 import java.sql.*;
@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlightRepository {
+
+    public static void saveAllFlights(List<Flight> flights) {
+    }
 
     public void addFlight(Flight flight) throws Exception {
         String sql = "INSERT INTO flights(flight_number, origin, destination, price, seats) VALUES(?,?,?,?,?)";
@@ -18,13 +21,12 @@ public class FlightRepository {
             ps.setString(1, flight.getFlightNumber());
             ps.setString(2, flight.getOrigin());
             ps.setString(3, flight.getDestination());
-            ps.setDouble(4, flight.getPrice());
-            ps.setInt(5, flight.getSeats());
+           
             ps.executeUpdate();
         }
     }
 
-    public List<Flight> getAllFlights() throws Exception {
+    public static List<Flight> getAllFlights() throws Exception {
         List<Flight> flights = new ArrayList<>();
         String sql = "SELECT * FROM flights";
 
@@ -45,4 +47,5 @@ public class FlightRepository {
         return flights;
     }
 }
+
 
