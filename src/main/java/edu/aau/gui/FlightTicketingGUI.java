@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class FlightTicketingGUI extends Application {
 
-    private final FlightRepository flightRepository = new FlightRepository();
+    private final edu.aau.FlightRepository flightRepository = new edu.aau.FlightRepository();
     private final ObservableList<Flight> searchResults = FXCollections.observableArrayList();
     private final ObservableList<Flight> bookedFlights = FXCollections.observableArrayList();
 
@@ -39,7 +39,7 @@ public class FlightTicketingGUI extends Application {
         TextField toField = new TextField();
         Button searchBtn = new Button("Search Flights");
 
-        TableView<Flight> table = createFlightTable(searchResults);
+        TableView<edu.aau.Flight> table = createFlightTable(searchResults);
 
         searchBtn.setOnAction(e -> {
             searchResults.clear();
@@ -50,7 +50,7 @@ public class FlightTicketingGUI extends Application {
                         searchResults.add(f);
                     }
                 }
-            } catch (IOException ex) {
+            } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
         });
@@ -128,3 +128,4 @@ public class FlightTicketingGUI extends Application {
         launch(args);
     }
 }
+
