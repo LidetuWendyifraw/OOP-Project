@@ -1,6 +1,6 @@
 package edu.aau;
 import java.io.Serializable;
-public class Flight implements serializable {
+public class Flight {
     private String flightNumber;
     private String origin;
     private String destination;
@@ -31,14 +31,7 @@ public class Flight implements serializable {
     }
 
 
-    public int getSeatsAvailable() {
-        return seatsAvailable;
-    }
 
-
-    public String getDepartureTime() {
-        return departureTime;
-    }
 
 
     public void setOrigin(String origin) {
@@ -49,19 +42,11 @@ public class Flight implements serializable {
     public void setDestination(String destination) {
         this.destination = destination;
     }
-    public void setSeatsAvailable(int seatsAvailable) {
-        this.seatsAvailable = seatsAvailable;
-    }
-
-
-    public void setDepartureTime(String departureTime) {
-        this.departureTime = departureTime;
-    }
 
 
     @Override
     public String toString() {
-        return flightNumber + ":" + origin + ":" + destination + ":" + seatsAvailable + ":" + departureTime;
+        return flightNumber + ":" + origin + ":" + destination ;
     }
 }
 //this my test commit on thefligh class
