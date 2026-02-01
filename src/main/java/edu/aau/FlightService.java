@@ -4,7 +4,7 @@ import java.util.*;
 
 public class FlightService {
 
-    public void addFlight(Flight flight) throws IOException {
+    public void addFlight(Flight flight) throws Exception {
         List<Flight> flights = FlightRepository.getAllFlights();
         for (Flight f : flights) {
             if (f.getFlightNumber().equals(flight.getFlightNumber())) {
@@ -15,11 +15,11 @@ public class FlightService {
         FlightRepository.saveAllFlights(flights);
     }
 
-    public List<Flight> viewFlights() throws IOException {
+    public List<Flight> viewFlights() throws Exception {
         return FlightRepository.getAllFlights();
     }
 
-    public void updateFlight(String flightNumber, Flight updatedFlight) throws IOException {
+    public void updateFlight(String flightNumber, Flight updatedFlight) throws Exception {
         List<Flight> flights = FlightRepository.getAllFlights();
         boolean found = false;
 
@@ -27,8 +27,7 @@ public class FlightService {
             if (f.getFlightNumber().equals(flightNumber)) {
                 f.setOrigin(updatedFlight.getOrigin());
                 f.setDestination(updatedFlight.getDestination());
-                f.setSeatsAvailable(updatedFlight.getSeatsAvailable());
-                f.setDepartureTime(updatedFlight.getDepartureTime());
+
                 found = true;
                 break;
             }
@@ -38,13 +37,13 @@ public class FlightService {
         FlightRepository.saveAllFlights(flights);
     }
 
-    public void deleteFlight(String flightNumber) throws IOException {
+    public void deleteFlight(String flightNumber) throws Exception {
         List<Flight> flights = FlightRepository.getAllFlights();
         flights.removeIf(f -> f.getFlightNumber().equals(flightNumber));
         FlightRepository.saveAllFlights(flights);
     }
 
-    public List<Flight> searchFlights(String keyword) throws IOException {
+    public List<Flight> searchFlights(String keyword) throws Exception {
         List<Flight> result = new ArrayList<>();
         for (Flight f : FlightRepository.getAllFlights()) {
             if (f.getOrigin().toLowerCase().contains(keyword.toLowerCase()) ||
@@ -55,3 +54,4 @@ public class FlightService {
         return result;
     }
 }
+
